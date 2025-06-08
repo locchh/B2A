@@ -10,6 +10,7 @@ __version__ = '0.2.0'
 from .translator import (
     text_to_braille,
     braille_to_text,
+    alphabet_to_braille,
     CONTRACTIONS,
     BRAILLE_ALPHABET,
     BRAILLE_NUMBERS,
@@ -21,6 +22,7 @@ from .translator import (
 __all__ = [
     'text_to_braille',
     'braille_to_text',
+    'alphabet_to_braille',
     'CONTRACTIONS',
     'BRAILLE_ALPHABET',
     'BRAILLE_NUMBERS',

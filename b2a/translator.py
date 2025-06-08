@@ -522,6 +522,34 @@ def braille_to_text(braille: str, grade: int = 2) -> str:
     return ''.join(result)
 
 
+def alphabet_to_braille(char: str) -> str:
+    """
+    Convert a single alphabet character to its Braille representation.
+    
+    Args:
+        char: A single character to convert to Braille
+        
+    Returns:
+        The Braille representation of the character, or the original character if not found
+    """
+    if not isinstance(char, str) or len(char) != 1:
+        raise ValueError("Input must be a single character")
+    
+    lower_char = char.lower()
+    
+    # Check if it's a letter
+    if lower_char in BRAILLE_ALPHABET:
+        return BRAILLE_ALPHABET[lower_char]
+    # Check if it's a digit
+    elif lower_char in BRAILLE_NUMBERS:
+        return BRAILLE_NUMBERS[lower_char]
+    # Check if it's punctuation
+    elif char in BRAILLE_PUNCTUATION:
+        return BRAILLE_PUNCTUATION[char]
+    # Return the character as-is if not found
+    return char
+
+
 def _grade1_braille_to_text(braille: str) -> str:
     """Convert Grade 1 (uncontracted) Braille to text."""
     result = []
